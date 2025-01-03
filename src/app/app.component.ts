@@ -10,22 +10,9 @@ export class AppComponent {
   title = 'corso-angular';
   persone = [
     { nome: 'Mario', cognome: 'Rossi', isOnline: true, color: 'blue' },
-    { nome: 'Paolo', cognome: 'Verdi', isOnline: false },
-    { nome: 'Luca', cognome: 'Bianchi', isOnline: true },
-    { nome: 'Giovanni', cognome: 'Neri', isOnline: false },
-    { nome: 'Giuseppe', cognome: 'Gialli', isOnline: true },
+    { nome: 'Paolo', cognome: 'Verdi', isOnline: false, color: 'red' },
+    { nome: 'Luca', cognome: 'Bianchi', isOnline: true, color: 'green' },
+    { nome: 'Giovanni', cognome: 'Neri', isOnline: false, color: 'yellow' },
+    { nome: 'Giuseppe', cognome: 'Gialli', isOnline: true, color: 'orange' },
   ];
-  color = 'green';
-
-  onInput(event: Event) {
-    this.title = (event.target as HTMLInputElement).value;
-  }
-
-  onClick(event: Event) {
-    this.title = 'Ho cliccato sul bottone';
-  }
-
-  getColor() {
-    return this.color;
-  }
 }
