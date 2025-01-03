@@ -1,4 +1,4 @@
-<button mat-raised-button color="primary" (click)="onClick($event)">
+<!-- <button mat-raised-button color="primary" (click)="onClick($event)">
   Primary
 </button>
 <mat-form-field class="example-full-width">
@@ -15,4 +15,31 @@
 </ng-template>
 <ng-template #bloccoElse>
   <p>non sono visibile</p>
-</ng-template>
+</ng-template> -->
+
+<!-- <ul>
+  <li *ngFor="let persona of persone">
+    {{ persona.nome }} {{ persona.cognome }}
+  </li>
+</ul> -->
+
+<!-- <div *ngFor="let persona of persone">
+  <p *ngIf="!persona.isOnline" class="cerchioRosso"></p>
+  <p *ngIf="persona.isOnline" class="cerchioVerde"></p>
+  <p>{{ persona.nome }} {{ persona.cognome }}</p>
+</div> -->
+
+<!-- <div
+  *ngFor="let persona of persone; index as i; first as isFirst; last as isLast"
+>
+  <p *ngIf="i > 2" class="cerchioVerde"></p>
+  <p>{{ isFirst }} {{ persona.nome }} {{ persona.cognome }} {{ isLast }}</p>
+</div> -->
+
+<div [ngSwitch]="numero">
+  <p *ngSwitchCase="1">uno</p>
+  <p *ngSwitchCase="2">due</p>
+  <p *ngSwitchCase="3">tre</p>
+  <p *ngSwitchCase="4">quattro</p>
+  <p *ngSwitchDefault>default</p>
+</div>
