@@ -36,10 +36,20 @@
   <p>{{ isFirst }} {{ persona.nome }} {{ persona.cognome }} {{ isLast }}</p>
 </div> -->
 
-<div [ngSwitch]="numero">
+<!-- <div [ngSwitch]="numero">
   <p *ngSwitchCase="1">uno</p>
   <p *ngSwitchCase="2">due</p>
   <p *ngSwitchCase="3">tre</p>
   <p *ngSwitchCase="4">quattro</p>
   <p *ngSwitchDefault>default</p>
-</div>
+</div> -->
+
+<ul>
+  <li *ngFor="let persona of persone">
+    <div
+      class="cerchio"
+      [ngStyle]="{ background: persona.isOnline ? 'green' : 'red' }"
+    ></div>
+    <p>{{ persona.nome }} {{ persona.cognome }}</p>
+  </li>
+</ul>

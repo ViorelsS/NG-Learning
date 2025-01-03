@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'corso-angular';
-  isVisibile = true;
   persone = [
     { nome: 'Mario', cognome: 'Rossi', isOnline: true },
     { nome: 'Paolo', cognome: 'Verdi', isOnline: false },
@@ -16,7 +15,7 @@ export class AppComponent {
     { nome: 'Giovanni', cognome: 'Neri', isOnline: false },
     { nome: 'Giuseppe', cognome: 'Gialli', isOnline: true },
   ];
-  numero = 3;
+  color = 'green';
 
   onInput(event: Event) {
     this.title = (event.target as HTMLInputElement).value;
@@ -24,5 +23,9 @@ export class AppComponent {
 
   onClick(event: Event) {
     this.title = 'Ho cliccato sul bottone';
+  }
+
+  getColor() {
+    return this.color;
   }
 }
