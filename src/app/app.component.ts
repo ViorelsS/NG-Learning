@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  OnInit,
+  AfterViewInit,
+} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +12,9 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit {
+  @ViewChild('inputSaluti') valoreInput!: ElementRef<HTMLInputElement>;
+
   title = 'corso-angular';
   persone = [
     { nome: 'Mario', cognome: 'Rossi', isOnline: true, color: 'blue' },
@@ -16,7 +24,17 @@ export class AppComponent {
     { nome: 'Giuseppe', cognome: 'Gialli', isOnline: true, color: 'orange' },
   ];
 
-  onRiceviDati(value: string) {
-    console.log(value);
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    console.log(this.valoreInput);
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    console.log(this.valoreInput);
+  }
+
+  onClick(): void {
+    console.log(this.valoreInput.nativeElement.value);
   }
 }
