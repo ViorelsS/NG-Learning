@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   standalone: false,
@@ -6,8 +12,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'prova.component.html',
   styleUrl: 'prova.component.css',
 })
-export class ProvaComponent implements OnInit {
-  constructor() {}
+export class ProvaComponent implements OnInit, OnChanges {
+  @Input() data: any;
 
-  ngOnInit(): void {}
+  constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
+
+  ngOnInit(): void {
+    console.log(this.data);
+  }
 }
