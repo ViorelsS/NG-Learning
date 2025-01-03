@@ -4,8 +4,16 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'corso-angular';
+
+  onInput(event: Event) {
+    this.title = (event.target as HTMLInputElement).value;
+  }
+
+  onClick(event: Event) {
+    this.title = 'Ho cliccato sul bottone';
+  }
 }
