@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'corso-angular';
   persone = [
-    { nome: 'Mario', cognome: 'Rossi', isOnline: true },
+    { nome: 'Mario', cognome: 'Rossi', isOnline: true, color: 'blue' },
     { nome: 'Paolo', cognome: 'Verdi', isOnline: false },
     { nome: 'Luca', cognome: 'Bianchi', isOnline: true },
     { nome: 'Giovanni', cognome: 'Neri', isOnline: false },
