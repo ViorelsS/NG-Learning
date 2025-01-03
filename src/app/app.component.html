@@ -46,10 +46,7 @@
 
 <ul>
   <li *ngFor="let persona of persone">
-    <div
-      class="cerchio"
-      [ngStyle]="{ background: persona.isOnline ? 'green' : 'red' }"
-    ></div>
+    <div class="cerchio" [ngStyle]=""></div>
     <p>{{ persona.nome }} {{ persona.cognome }}</p>
   </li>
 </ul>
