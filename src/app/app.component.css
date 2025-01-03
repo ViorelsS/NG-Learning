@@ -1,15 +1,3 @@
-.cerchioVerde .cerchioRosso {
-  width: 10px;
-  height: 10px;
-}
-.cerchioVerde {
-  background: green;
-}
-
-.cerchioRosso {
-  background: red;
-}
-
 .cerchio {
   width: 10px;
   height: 10px;
