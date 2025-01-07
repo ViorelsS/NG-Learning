@@ -1,22 +1,2 @@
-<h2>Scegli il colore dell'evidenziatore</h2>
-<div>
-  <input
-    type="radio"
-    name="coloreEvidenziatore"
-    (click)="cambiaColoreEvidenziatore('red')"
-  />Rosso
-  <input
-    type="radio"
-    name="coloreEvidenziatore"
-    (click)="cambiaColoreEvidenziatore('pink')"
-  />Rosa
-  <input
-    type="radio"
-    name="coloreEvidenziatore"
-    (click)="cambiaColoreEvidenziatore('purple')"
-  />Viola
-</div>
-
-<p [appHighlight]="colore" defaultColor="blue">Ciao sono un paragrafo</p>
-<p [appHighlight]="colore" defaultColor="green">Ciao sono un paragrafo</p>
-<p [appHighlight]="colore" defaultColor="black">Ciao sono un paragrafo</p>
+<p>{{ oggi | date : "d/MMM/yyyy - h:mm:ss" }}</p>
+<p>{{ numero | currency : "EUR" : "symbol" : "2.3-5" }}</p>

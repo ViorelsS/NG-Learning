@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  OnInit,
-  AfterViewInit,
-} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +6,10 @@ import {
   standalone: false,
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit, AfterViewInit {
-  @ViewChild('inputSaluti') valoreInput!: ElementRef<HTMLInputElement>;
-
-  colore = '';
-
+export class AppComponent {
   title = 'corso-angular';
+  numero = 5;
+  oggi = Date.now();
   persone = [
     { nome: 'Mario', cognome: 'Rossi', isOnline: true, color: 'blue' },
     { nome: 'Paolo', cognome: 'Verdi', isOnline: false, color: 'red' },
@@ -25,22 +17,4 @@ export class AppComponent implements OnInit, AfterViewInit {
     { nome: 'Giovanni', cognome: 'Neri', isOnline: false, color: 'yellow' },
     { nome: 'Giuseppe', cognome: 'Gialli', isOnline: true, color: 'orange' },
   ];
-
-  ngOnInit(): void {
-    console.log('ngOnInit');
-    console.log(this.valoreInput);
-  }
-
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit');
-    console.log(this.valoreInput);
-  }
-
-  onClick(): void {
-    console.log(this.valoreInput.nativeElement.value);
-  }
-
-  cambiaColoreEvidenziatore(colore: string) {
-    this.colore = colore;
-  }
 }
