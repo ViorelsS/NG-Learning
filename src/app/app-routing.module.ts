@@ -6,6 +6,7 @@ import { ContattoComponent } from './componenti/contatto/contatto.component';
 import { NotfoundComponent } from './componenti/notfound/notfound.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SignupComponent } from './componenti/signup/signup.component';
+import { SigninComponent } from './componenti/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
+  },
+  {
+    path: 'signin',
+    component: SigninComponent,
   },
   {
     path: 'homepage',

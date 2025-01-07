@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './componenti/signup/signup.component';
 import { ConfigService } from './servizi/config.service';
+import { SigninComponent } from './componenti/signin/signin.component';
 
 export function initializeApp(configService: ConfigService) {
   return (): Promise<any> => {
@@ -35,6 +36,7 @@ export function initializeApp(configService: ConfigService) {
     ContattoComponent,
     NotfoundComponent,
     SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
