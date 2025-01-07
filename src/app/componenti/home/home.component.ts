@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { interval, Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,16 @@ import { interval, Observable } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
+  // Per lavorare direttamente da qui, uso @ViewChild
+  @ViewChild('homeform')
+  homeform!: NgForm;
+
   sottoscrizione: any;
 
-  ngOnInit(): void {
-    this.sottoscrizione = interval(1000).subscribe((numero) =>
-      console.log(numero)
-    );
-  }
+  ngOnInit(): void {}
 
-  ngOnDestroy(): void {
-    this.sottoscrizione.unsubscribe();
+  onSubmit(form: NgForm) {
+    console.log(this.homeform);
   }
 }

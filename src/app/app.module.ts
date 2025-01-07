@@ -14,6 +14,8 @@ import { HomeComponent } from './componenti/home/home.component';
 import { ContattiComponent } from './componenti/contatti/contatti.component';
 import { ContattoComponent } from './componenti/contatto/contatto.component';
 import { NotfoundComponent } from './componenti/notfound/notfound.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { NotfoundComponent } from './componenti/notfound/notfound.component';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
