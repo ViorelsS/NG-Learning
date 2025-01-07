@@ -1,5 +1,3 @@
-import { AboutComponent } from './componenti/about/about.component';
-import { ContactComponent } from './componenti/contact/contact.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,14 +11,14 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './direttive/highlight.directive';
 import { HomeComponent } from './componenti/home/home.component';
+import { ContattiComponent } from './componenti/contatti/contatti.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HighlightDirective,
-    AboutComponent,
-    ContactComponent,
     HomeComponent,
+    ContattiComponent,
   ],
   imports: [
     BrowserModule,

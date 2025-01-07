@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ServizioProvaService {
-  constructor() {}
-
   persone = [
     { nome: 'Mario', cognome: 'Rossi', isOnline: true, color: 'blue' },
     { nome: 'Paolo', cognome: 'Verdi', isOnline: false, color: 'red' },
@@ -14,7 +12,13 @@ export class ServizioProvaService {
     { nome: 'Giuseppe', cognome: 'Gialli', isOnline: true, color: 'orange' },
   ];
 
+  constructor() {}
+
   getPersone() {
     return this.persone;
+  }
+
+  getPersona(index: number) {
+    return this.persone[index];
   }
 }

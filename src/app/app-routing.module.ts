@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './componenti/about/about.component';
 import { HomeComponent } from './componenti/home/home.component';
-import { ContactComponent } from './componenti/contact/contact.component';
+import { ContattiComponent } from './componenti/contatti/contatti.component';
 
 const routes: Routes = [
   {
@@ -10,12 +9,12 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'about',
-    component: AboutComponent,
+    path: 'contatti',
+    component: ContattiComponent,
   },
   {
-    path: 'contact',
-    component: ContactComponent,
+    path: 'contatti/:id',
+    component: ContattiComponent,
   },
 ];
 
