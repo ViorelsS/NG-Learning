@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { interval } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +9,19 @@ import { interval } from 'rxjs';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  // Per lavorare direttamente da qui, uso @ViewChild
-  @ViewChild('homeform')
-  homeform!: NgForm;
+  homeform!: FormGroup;
 
-  sottoscrizione: any;
+  constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.homeform = new FormGroup({
+      nome: new FormControl(null, Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      color: new FormControl(),
+    });
+  }
 
-  onSubmit(form: NgForm) {
+  onSubmit() {
     console.log(this.homeform);
   }
 }

@@ -5,7 +5,7 @@ form {
 }
 
 input.ng-valid {
-  background-color: green;
+  background-color: green !important;
 }
 
 input.ng-touched && input.ng-invalid {
