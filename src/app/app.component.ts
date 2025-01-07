@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ServizioProvaService } from './servizi/servizio-prova.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +7,10 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'corso-angular';
-  numero = 5;
-  oggi = Date.now();
-  persone = [
-    { nome: 'Mario', cognome: 'Rossi', isOnline: true, color: 'blue' },
-    { nome: 'Paolo', cognome: 'Verdi', isOnline: false, color: 'red' },
-    { nome: 'Luca', cognome: 'Bianchi', isOnline: true, color: 'green' },
-    { nome: 'Giovanni', cognome: 'Neri', isOnline: false, color: 'yellow' },
-    { nome: 'Giuseppe', cognome: 'Gialli', isOnline: true, color: 'orange' },
-  ];
+export class AppComponent implements OnInit {
+  constructor(private servizioProva: ServizioProvaService) {}
+
+  ngOnInit(): void {
+    console.log('appcomponent', this.servizioProva.persone);
+  }
 }
