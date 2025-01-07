@@ -1,9 +1,10 @@
-<div style="display: flex">
+<div>
   <p style="text-transform: uppercase; margin-top: 10px">Lista contati</p>
   <div style="display: flex; flex-direction: column; margin-left: 20px">
     <div *ngFor="let persona of persone; index as i">
       <a routerLink="/contatti/{{ i }}">
-        <p>{{ persona.nome }} {{ persona.cognome }}</p>
+        <p>{{ persona.nome }} {{ persona.email }}</p>
+        <button (click)="onDeletePersona(persona.id)">Cancella</button>
       </a>
     </div>
   </div>

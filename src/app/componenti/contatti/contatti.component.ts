@@ -1,3 +1,4 @@
+import { FirebaseService } from './../../servizi/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { ServizioProvaService } from '../../servizi/servizio-prova.service';
 import { ActivatedRoute } from '@angular/router';
@@ -14,12 +15,30 @@ export class ContattiComponent implements OnInit {
   persona: any;
   isProfile!: boolean;
 
-  constructor(
-    private servizioProva: ServizioProvaService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
-    this.persone = this.servizioProva.getPersone();
+    this.firebaseService
+      .getPersone(
+        'https://corso-angular-8f15d-default-rtdb.europe-west1.firebasedatabase.app/persone.json'
+      )
+      .subscribe((data: any) => {
+        this.persone = Object.keys(data).map((key) => {
+          data[key].id = key;
+          return data[key];
+        });
+        console.log(this.persone);
+      });
+  }
+
+  onDeletePersona(id: string) {
+    this.firebaseService
+      .deletePersona(
+        'https://corso-angular-8f15d-default-rtdb.europe-west1.firebasedatabase.app/persone',
+        id
+      )
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }
