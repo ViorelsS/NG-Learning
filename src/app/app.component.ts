@@ -15,6 +15,8 @@ import {
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('inputSaluti') valoreInput!: ElementRef<HTMLInputElement>;
 
+  colore = '';
+
   title = 'corso-angular';
   persone = [
     { nome: 'Mario', cognome: 'Rossi', isOnline: true, color: 'blue' },
@@ -36,5 +38,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   onClick(): void {
     console.log(this.valoreInput.nativeElement.value);
+  }
+
+  cambiaColoreEvidenziatore(colore: string) {
+    this.colore = colore;
   }
 }
