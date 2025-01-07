@@ -1,7 +1,5 @@
 import { FirebaseService } from './../../servizi/firebase.service';
 import { Component, OnInit } from '@angular/core';
-import { ServizioProvaService } from '../../servizi/servizio-prova.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contatti',

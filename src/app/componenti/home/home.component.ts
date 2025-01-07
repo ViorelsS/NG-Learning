@@ -49,4 +49,18 @@ export class HomeComponent implements OnInit {
         console.log(data);
       });
   }
+
+  onPatchPersona() {
+    this.firebase
+      .patchPersona(
+        'https://corso-angular-8f15d-default-rtdb.europe-west1.firebasedatabase.app/persone',
+        '-OG05RVHXjjd6kEihkYW',
+        {
+          email: 'gianmario@gmail.com',
+        }
+      )
+      .subscribe((data) => {
+        console.log(data);
+      });
+  }
 }
