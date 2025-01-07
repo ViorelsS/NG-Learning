@@ -5,12 +5,17 @@ import { ContattiComponent } from './componenti/contatti/contatti.component';
 import { ContattoComponent } from './componenti/contatto/contatto.component';
 import { NotfoundComponent } from './componenti/notfound/notfound.component';
 import { AuthGuard } from './auth/auth.guard';
+import { SignupComponent } from './componenti/signup/signup.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     redirectTo: '/homepage',
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
   },
   {
     path: 'homepage',

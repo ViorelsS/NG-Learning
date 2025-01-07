@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,14 @@ import { NotfoundComponent } from './componenti/notfound/notfound.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './componenti/signup/signup.component';
+import { ConfigService } from './servizi/config.service';
+
+export function initializeApp(configService: ConfigService) {
+  return (): Promise<any> => {
+    return configService.loadConfig();
+  };
+}
 
 @NgModule({
   declarations: [
@@ -26,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContattiComponent,
     ContattoComponent,
     NotfoundComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,15 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    ConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [ConfigService],
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
