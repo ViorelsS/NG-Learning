@@ -4,6 +4,7 @@ import { HomeComponent } from './componenti/home/home.component';
 import { ContattiComponent } from './componenti/contatti/contatti.component';
 import { ContattoComponent } from './componenti/contatto/contatto.component';
 import { NotfoundComponent } from './componenti/notfound/notfound.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,8 @@ const routes: Routes = [
   {
     path: 'contatti',
     component: ContattiComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [{ path: ':id', component: ContattoComponent }],
   },
   {
