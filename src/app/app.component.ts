@@ -1,3 +1,4 @@
+import { interval, Observable } from 'rxjs';
 import { ServizioProvaService } from './servizi/servizio-prova.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,6 +12,6 @@ export class AppComponent implements OnInit {
   constructor(private servizioProva: ServizioProvaService) {}
 
   ngOnInit(): void {
-    console.log('appcomponent', this.servizioProva.persone);
+    // interval(1000).subscribe((numero) => console.log(numero));
   }
 }
