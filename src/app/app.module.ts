@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './direttive/highlight.directive';
 import { HomeComponent } from './componenti/home/home.component';
 import { ContattiComponent } from './componenti/contatti/contatti.component';
+import { ContattoComponent } from './componenti/contatto/contatto.component';
+import { NotfoundComponent } from './componenti/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ContattiComponent } from './componenti/contatti/contatti.component';
     HighlightDirective,
     HomeComponent,
     ContattiComponent,
+    ContattoComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
