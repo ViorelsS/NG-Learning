@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -5,14 +6,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class FirebaseService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   insertPersona(url: string, body: {}) {
     return this.http.post(url, body);
   }
 
   getPersone(url: string) {
-    return this.http.get(url);
+    const token = this.authService.user?.token;
+    return this.http.get(`${url}?auth=${token}`);
   }
 
   deletePersona(url: string, id: string) {

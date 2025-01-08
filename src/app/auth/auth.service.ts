@@ -1,6 +1,8 @@
 import { ConfigService } from './../servizi/config.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../modelli/user.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +11,14 @@ export class AuthService {
   signUpUrl: string;
   signInUrl: string;
   isLoggedIn = true;
-  isAdmin = false;
+  isAdmin = true;
+  user!: User | null;
 
-  constructor(private http: HttpClient, private configService: ConfigService) {
+  constructor(
+    private http: HttpClient,
+    private configService: ConfigService,
+    private router: Router
+  ) {
     this.signUpUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.configService.firebaseApiKey}`;
     this.signInUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.configService.firebaseApiKey}`;
   }
@@ -21,6 +28,11 @@ export class AuthService {
 
   isRoleAdmin() {
     return this.isAdmin;
+  }
+
+  // Quando ci logghiamo creiamo un nuovo user
+  createUser(email: string, id: string, token: string, expirationDate: Date) {
+    this.user = new User(email, id, token, expirationDate);
   }
 
   signUp(email: string, password: string) {
@@ -37,5 +49,12 @@ export class AuthService {
       password: password,
       returnSecureToken: true,
     });
+  }
+
+  logout() {
+    this.isLoggedIn = false;
+    this.user = null;
+    localStorage.removeItem('user');
+    this.router.navigate(['/signin']);
   }
 }

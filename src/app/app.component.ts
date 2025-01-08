@@ -1,6 +1,5 @@
-import { interval, Observable } from 'rxjs';
-import { ServizioProvaService } from './servizi/servizio-prova.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  constructor(private servizioProva: ServizioProvaService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    // interval(1000).subscribe((numero) => console.log(numero));
+    if (localStorage.getItem('user')) {
+      const user = JSON.parse(localStorage?.getItem('user') || '');
+      this.authService.createUser(
+        user.email,
+        user.id,
+        user._token,
+        user._expirationDate
+      );
+    }
   }
 }
